@@ -41,6 +41,7 @@ export default function TopicPage() {
   const infinite = hasGenerator(topic.slug);
 
   function practice() {
+    if (!topic) return;
     startPracticeTopic(topic, 15);
     const err = useSessionStore.getState().error;
     if (!err) navigate("/practice/run");
