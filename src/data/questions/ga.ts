@@ -1,0 +1,75 @@
+import type { Question } from "@/types";
+import { gaTopics } from "../syllabus/ga";
+import { buildQuestions, findTopic } from "./builders";
+
+const modernIndia = findTopic(gaTopics, "modern-india-and-freedom-struggle");
+const constitution = findTopic(gaTopics, "the-constitution-and-fundamental-rights");
+const humanBody = findTopic(gaTopics, "human-body-and-everyday-science");
+const physicalGeography = findTopic(gaTopics, "physical-geography");
+const basicEconomics = findTopic(gaTopics, "basic-economic-concepts");
+const staticSymbols = findTopic(gaTopics, "national-symbols-and-firsts");
+const ecosystems = findTopic(gaTopics, "ecosystems-and-biodiversity");
+const currentAffairsCapsule = findTopic(gaTopics, "monthly-current-affairs-capsule");
+
+export const gaQuestions: Question[] = [
+  // ---- Modern India & Freedom Struggle (hero) ------------------------------
+  ...buildQuestions(modernIndia, [
+    { question: "Who founded the Indian National Congress in 1885?", options: ["Bal Gangadhar Tilak", "Allan Octavian Hume", "Mahatma Gandhi", "Dadabhai Naoroji"], answerIndex: 1, explanation: "The Indian National Congress was founded in 1885 by Allan Octavian Hume, a retired British civil servant, along with other Indian leaders.", difficulty: "Easy", subtopicName: "Indian National Congress & major movements", expectedTimeSeconds: 30 },
+    { question: "The Quit India Movement was launched in which year?", options: ["1930", "1940", "1942", "1947"], answerIndex: 2, explanation: "The Quit India Movement was launched by Mahatma Gandhi in August 1942.", difficulty: "Easy", subtopicName: "Indian National Congress & major movements", expectedTimeSeconds: 25 },
+    { question: "Who was the first President of the Indian National Congress?", options: ["Dadabhai Naoroji", "W.C. Bonnerjee", "Surendranath Banerjee", "Gopal Krishna Gokhale"], answerIndex: 1, explanation: "W.C. Bonnerjee presided over the first INC session held in Bombay in 1885.", difficulty: "Medium", subtopicName: "Indian National Congress & major movements", expectedTimeSeconds: 35 },
+    { question: "The Jallianwala Bagh massacre of 1919 took place in which city?", options: ["Amritsar", "Lahore", "Delhi", "Chandigarh"], answerIndex: 0, explanation: "The massacre occurred at Jallianwala Bagh in Amritsar, Punjab, on 13 April 1919.", difficulty: "Medium", expectedTimeSeconds: 30 },
+    { question: "Who gave the famous slogan, 'Swaraj is my birthright and I shall have it'?", options: ["Lala Lajpat Rai", "Bal Gangadhar Tilak", "Bipin Chandra Pal", "Subhas Chandra Bose"], answerIndex: 1, explanation: "This slogan is attributed to Bal Gangadhar Tilak.", difficulty: "Medium", subtopicName: "Key freedom fighters", expectedTimeSeconds: 30 },
+    { question: "Who was the Viceroy of India at the time of the Partition of Bengal in 1905?", options: ["Lord Curzon", "Lord Minto", "Lord Hardinge", "Lord Chelmsford"], answerIndex: 0, explanation: "Lord Curzon, then Viceroy of India, ordered the Partition of Bengal in 1905.", difficulty: "Hard", expectedTimeSeconds: 40, type: "ai-generated" },
+  ]),
+  // ---- Constitution & Fundamental Rights (hero) ----------------------------
+  ...buildQuestions(constitution, [
+    { question: "The Constitution of India was adopted by the Constituent Assembly on:", options: ["26 January 1950", "26 November 1949", "15 August 1947", "26 January 1949"], answerIndex: 1, explanation: "The Constitution was adopted on 26 November 1949, celebrated today as Constitution Day.", difficulty: "Easy", subtopicName: "Making of the Constitution", expectedTimeSeconds: 30 },
+    { question: "The Constitution of India came into effect (was enforced) on:", options: ["26 November 1949", "15 August 1947", "26 January 1950", "2 October 1950"], answerIndex: 2, explanation: "The Constitution came into force on 26 January 1950, commemorated as Republic Day.", difficulty: "Easy", subtopicName: "Making of the Constitution", tags: ["common-trap"], expectedTimeSeconds: 30 },
+    { question: "How many Fundamental Rights are currently guaranteed by the Indian Constitution?", options: ["5", "6", "7", "8"], answerIndex: 1, explanation: "There are 6 Fundamental Rights today — the Right to Property was removed from this list by the 44th Amendment (1978) and made a legal right instead.", difficulty: "Medium", subtopicName: "Fundamental Rights", tags: ["common-trap"], expectedTimeSeconds: 40 },
+    { question: "Who is widely known as the 'Father of the Indian Constitution'?", options: ["Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Sardar Vallabhbhai Patel", "Dr. Rajendra Prasad"], answerIndex: 1, explanation: "Dr. B.R. Ambedkar chaired the Drafting Committee of the Constituent Assembly.", difficulty: "Medium", subtopicName: "Making of the Constitution", expectedTimeSeconds: 25 },
+    { question: "The Directive Principles of State Policy in the Indian Constitution were inspired by the Constitution of:", options: ["USA", "UK", "Ireland", "Canada"], answerIndex: 2, explanation: "The Directive Principles were borrowed from the Irish Constitution.", difficulty: "Medium", subtopicName: "Directive Principles of State Policy", expectedTimeSeconds: 30 },
+    { question: "Which Article of the Indian Constitution guarantees the Right to Constitutional Remedies?", options: ["Article 19", "Article 21", "Article 32", "Article 14"], answerIndex: 2, explanation: "Article 32 empowers citizens to move the Supreme Court directly for enforcement of Fundamental Rights — Dr. Ambedkar called it 'the heart and soul' of the Constitution.", difficulty: "Hard", subtopicName: "Fundamental Rights", expectedTimeSeconds: 40, type: "ai-generated" },
+  ]),
+  // ---- Human Body & Everyday Science (hero) --------------------------------
+  ...buildQuestions(humanBody, [
+    { question: "Which is the largest organ of the human body?", options: ["Liver", "Skin", "Lungs", "Heart"], answerIndex: 1, explanation: "The skin is the largest organ of the human body by surface area and weight.", difficulty: "Easy", subtopicName: "Human body systems", expectedTimeSeconds: 20 },
+    { question: "The normal human body temperature is approximately:", options: ["35°C", "37°C", "40°C", "42°C"], answerIndex: 1, explanation: "Normal human body temperature is approximately 37°C (98.6°F).", difficulty: "Easy", subtopicName: "Everyday-life science facts", expectedTimeSeconds: 20 },
+    { question: "Which blood group is known as the universal donor?", options: ["AB positive", "O negative", "A positive", "B negative"], answerIndex: 1, explanation: "O negative blood lacks A, B and Rh antigens, so it can generally be given to patients of any blood group.", difficulty: "Medium", subtopicName: "Human body systems", expectedTimeSeconds: 30 },
+    { question: "Which vitamin does the human body synthesize when exposed to sunlight?", options: ["Vitamin A", "Vitamin B12", "Vitamin C", "Vitamin D"], answerIndex: 3, explanation: "Vitamin D is synthesized in the skin upon exposure to sunlight (UVB rays).", difficulty: "Medium", subtopicName: "Everyday-life science facts", expectedTimeSeconds: 25 },
+    { question: "How many chambers does the human heart have?", options: ["2", "3", "4", "5"], answerIndex: 2, explanation: "The human heart has 4 chambers: two atria and two ventricles.", difficulty: "Medium", subtopicName: "Human body systems", expectedTimeSeconds: 20 },
+    { question: "Which part of the human brain primarily controls balance and coordination?", options: ["Cerebrum", "Cerebellum", "Medulla oblongata", "Hypothalamus"], answerIndex: 1, explanation: "The cerebellum is responsible for balance, posture and coordination of voluntary movements.", difficulty: "Hard", subtopicName: "Human body systems", expectedTimeSeconds: 30, type: "ai-generated" },
+  ]),
+  // ---- Physical Geography (breadth) ----------------------------------------
+  ...buildQuestions(physicalGeography, [
+    { question: "Which is the longest river in India?", options: ["Godavari", "Ganga", "Yamuna", "Brahmaputra"], answerIndex: 1, explanation: "The Ganga is the longest river flowing within India, at roughly 2,500 km.", difficulty: "Easy", subtopicName: "Rivers & drainage", expectedTimeSeconds: 20 },
+    { question: "Which Indian state has the longest coastline?", options: ["Gujarat", "Tamil Nadu", "Andhra Pradesh", "Maharashtra"], answerIndex: 0, explanation: "Gujarat has the longest coastline among Indian states, at roughly 1,600 km.", difficulty: "Medium", subtopicName: "Physiography of India", expectedTimeSeconds: 25 },
+    { question: "Which is the highest peak located entirely within India?", options: ["Nanda Devi", "Kangchenjunga", "K2", "Mount Everest"], answerIndex: 1, explanation: "Kangchenjunga, on the Sikkim-Nepal border, is the highest peak fully within Indian territory (K2 lies in Pakistan-administered Kashmir; Everest is in Nepal).", difficulty: "Medium", subtopicName: "Physiography of India", tags: ["common-trap"], expectedTimeSeconds: 35 },
+    { question: "The Tropic of Cancer passes through how many Indian states?", options: ["6", "7", "8", "9"], answerIndex: 2, explanation: "The Tropic of Cancer passes through 8 Indian states: Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura and Mizoram.", difficulty: "Medium", subtopicName: "Physiography of India", expectedTimeSeconds: 30 },
+  ]),
+  // ---- Basic Economic Concepts (breadth) -----------------------------------
+  ...buildQuestions(basicEconomics, [
+    { question: "GDP stands for:", options: ["Gross Domestic Product", "Gross Development Plan", "General Domestic Product", "Gross Domestic Profit"], answerIndex: 0, explanation: "GDP = Gross Domestic Product, the total value of goods and services produced within a country in a given period.", difficulty: "Easy", subtopicName: "GDP, GNP, NDP, NNP", expectedTimeSeconds: 20 },
+    { question: "Who is widely regarded as the 'Father of Economics'?", options: ["Adam Smith", "John Maynard Keynes", "Karl Marx", "Amartya Sen"], answerIndex: 0, explanation: "Adam Smith, author of 'The Wealth of Nations' (1776), is regarded as the father of modern economics.", difficulty: "Easy", expectedTimeSeconds: 20 },
+    { question: "Inflation refers to:", options: ["A fall in the general price level", "A sustained rise in the general price level", "An increase in exports", "A decrease in money supply"], answerIndex: 1, explanation: "Inflation is a sustained increase in the general price level of goods and services over time.", difficulty: "Medium", subtopicName: "Inflation & its types", expectedTimeSeconds: 25 },
+    { question: "Which body officially compiles and releases India's GDP data?", options: ["RBI", "NITI Aayog", "National Statistical Office (NSO)", "SEBI"], answerIndex: 2, explanation: "The National Statistical Office (under the Ministry of Statistics and Programme Implementation) releases official GDP estimates.", difficulty: "Medium", expectedTimeSeconds: 30 },
+  ]),
+  // ---- National Symbols & Firsts (breadth) ---------------------------------
+  ...buildQuestions(staticSymbols, [
+    { question: "What is the National Animal of India?", options: ["Lion", "Elephant", "Tiger", "Peacock"], answerIndex: 2, explanation: "The Bengal Tiger is India's National Animal.", difficulty: "Easy", subtopicName: "National symbols", expectedTimeSeconds: 15 },
+    { question: "What is the National Bird of India?", options: ["Peacock", "Sparrow", "Crane", "Swan"], answerIndex: 0, explanation: "The Peacock (Indian Peafowl) is India's National Bird.", difficulty: "Easy", subtopicName: "National symbols", expectedTimeSeconds: 15 },
+    { question: "Who was the first woman Prime Minister of India?", options: ["Indira Gandhi", "Sarojini Naidu", "Pratibha Patil", "Sushma Swaraj"], answerIndex: 0, explanation: "Indira Gandhi became India's first woman Prime Minister in 1966.", difficulty: "Easy", subtopicName: "Notable firsts", expectedTimeSeconds: 20 },
+    { question: "Who was the first President of India?", options: ["Dr. Rajendra Prasad", "Dr. S. Radhakrishnan", "Dr. Zakir Husain", "V.V. Giri"], answerIndex: 0, explanation: "Dr. Rajendra Prasad served as independent India's first President, from 1950 to 1962.", difficulty: "Easy", subtopicName: "Notable firsts", expectedTimeSeconds: 20 },
+  ]),
+  // ---- Ecosystems & Biodiversity (breadth) ---------------------------------
+  ...buildQuestions(ecosystems, [
+    { question: "Which of the following is recognised as a biodiversity hotspot in India?", options: ["Thar Desert", "Western Ghats", "Deccan Plateau", "Gangetic Plains"], answerIndex: 1, explanation: "The Western Ghats is one of India's globally recognised biodiversity hotspots.", difficulty: "Medium", subtopicName: "Biodiversity hotspots in India", expectedTimeSeconds: 25 },
+    { question: "Kaziranga National Park is particularly famous for which animal?", options: ["Bengal Tiger", "One-horned Rhinoceros", "Asiatic Lion", "Snow Leopard"], answerIndex: 1, explanation: "Kaziranga National Park in Assam is renowned for its population of the one-horned rhinoceros.", difficulty: "Medium", subtopicName: "National parks & sanctuaries", expectedTimeSeconds: 25 },
+    { question: "Which gas is primarily responsible for the greenhouse effect and global warming?", options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Helium"], answerIndex: 2, explanation: "Carbon dioxide is the principal greenhouse gas driving global warming, alongside methane and a few others.", difficulty: "Easy", subtopicName: "Ecosystem basics", expectedTimeSeconds: 20 },
+    { question: "The Chipko Movement was primarily associated with:", options: ["Wildlife protection", "Forest conservation", "Water conservation", "Soil conservation"], answerIndex: 1, explanation: "The Chipko Movement (1970s) was a forest-conservation movement in which villagers hugged trees to prevent them from being felled.", difficulty: "Medium", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Monthly Current Affairs Capsule (breadth, deliberately kept small) ---
+  ...buildQuestions(currentAffairsCapsule, [
+    { question: "By long-standing convention, the Union Budget of India is presented in which month?", options: ["February", "April", "July", "March"], answerIndex: 0, explanation: "The Union Budget is conventionally presented on 1 February each year. (This is a stable procedural fact, not a dated current-affairs item — genuine monthly current affairs should be added via the import tool with a month/year tag.)", difficulty: "Easy", subtopicName: "National affairs", expectedTimeSeconds: 25 },
+    { question: "The Economic Survey of India is typically presented in Parliament:", options: ["A day before the Union Budget", "A month after the Budget", "On Republic Day", "During the monsoon session"], answerIndex: 0, explanation: "The Economic Survey is conventionally tabled a day before the Union Budget. As with the item above, treat this as a stable convention, not a substitute for genuinely dated current-affairs notes.", difficulty: "Medium", subtopicName: "National affairs", expectedTimeSeconds: 30 },
+  ]),
+];
