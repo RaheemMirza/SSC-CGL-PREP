@@ -39,6 +39,15 @@ export interface Chapter {
 export type TopicStatus = "not-started" | "in-progress" | "strong" | "weak" | "needs-revision" | "mastered";
 export type SpeedRating = "fast" | "good" | "average" | "slow" | "unknown";
 export type DifficultyLevel = "Easy" | "Medium" | "Hard";
+/** A general, stable guide to how often a topic tends to show up in the
+ * real exam, based on well-established SSC CGL prep-community consensus —
+ * not an exact guaranteed question count (that varies shift to shift and
+ * year to year), but a reliable "study this first if you're short on time"
+ * signal. "must" = consistently high-frequency, study first. "should" =
+ * solid, regular presence — the default for anything not called out
+ * either way. "could" = lower-frequency or narrower topics, safe to
+ * deprioritise under real time pressure. */
+export type TopicPriority = "must" | "should" | "could";
 
 export interface Subtopic {
   id: string;
@@ -55,6 +64,7 @@ export interface Topic {
   slug: string;
   order: number;
   difficultyTag: DifficultyLevel;
+  priority: TopicPriority;
   tags: string[];
   subtopics: Subtopic[];
   /** Whether this topic has a full authored lesson (concept notes, formulas,
