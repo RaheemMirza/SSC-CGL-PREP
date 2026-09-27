@@ -200,3 +200,121 @@ export const GA_LESSONS: LessonContent[] = [
     ],
     sscShortcuts: ["Remember light travels through vacuum but sound doesn't — this single fact resolves many 'which of these needs a medium' style questions."],
   },
+  {
+    topicId: "ga-physics--electricity-and-magnetism",
+    whatIsIt: ["Basic circuit concepts (current, voltage, resistance) and the relationship between electricity and magnetism."],
+    keyFormulas: [{ formula: "V = I×R (Ohm's Law)", note: "Voltage = Current × Resistance." }],
+    quickRevision: [
+      "Ohm's Law: V=IR, relating voltage, current, and resistance in a circuit.",
+      "A moving electric charge creates a magnetic field — the basis of electromagnets and electric motors.",
+      "Conductors (like metals) allow current to flow easily; insulators (like rubber, glass) resist it.",
+      "Series circuits: same current flows through all components; parallel circuits: same voltage across all branches.",
+    ],
+    sscShortcuts: ["Ohm's Law (V=IR) underlies most basic circuit questions — if a question gives any two of voltage/current/resistance, the third follows directly."],
+  },
+  {
+    topicId: "ga-chemistry--elements-compounds-and-the-periodic-table",
+    whatIsIt: ["How elements are organised in the periodic table (by increasing atomic number, into periods and groups), and the difference between elements, compounds, and mixtures."],
+    quickRevision: [
+      "An element consists of only one type of atom; a compound is two or more elements chemically combined in a fixed ratio; a mixture is a physical (not chemical) combination.",
+      "The periodic table arranges elements by increasing atomic number, organised into periods (rows) and groups (columns) that share similar chemical properties.",
+      "Metals are generally found on the left/centre of the periodic table, non-metals toward the right.",
+      "Noble gases (rightmost group) are largely chemically inert due to their stable electron configuration.",
+    ],
+    sscShortcuts: ["Elements in the same GROUP (column) share similar chemical behaviour — use this to reason about an unfamiliar element from a familiar neighbour in its group."],
+  },
+  {
+    topicId: "ga-chemistry--acids-bases-and-everyday-chemistry",
+    whatIsIt: ["The pH scale and properties of acids/bases, plus common household chemistry facts."],
+    quickRevision: [
+      "The pH scale runs 0-14: below 7 is acidic, 7 is neutral, above 7 is basic (alkaline).",
+      "Acids turn blue litmus red; bases turn red litmus blue — the classic quick indicator test.",
+      "Common examples: lemon juice/vinegar (acidic), baking soda/soap (basic), pure water (neutral, pH 7).",
+      "Neutralisation: an acid and a base react to form a salt and water, moving the pH toward neutral.",
+    ],
+    sscShortcuts: ["Litmus colour rule: 'Acid turns litmus red' — a single memorised phrase covers the acid/base indicator questions."],
+  },
+  {
+    topicId: "ga-biology--cell-biology-and-classification",
+    whatIsIt: ["The cell as the basic unit of life, and the traditional five-kingdom classification system (Monera, Protista, Fungi, Plantae, Animalia) commonly taught at this level."],
+    quickRevision: [
+      "The cell is the basic structural and functional unit of all living organisms.",
+      "Prokaryotic cells (e.g. bacteria) lack a membrane-bound nucleus; eukaryotic cells (plants, animals, fungi) have one.",
+      "Five-kingdom classification (commonly taught): Monera (bacteria), Protista, Fungi, Plantae, Animalia.",
+      "Mitochondria are often called the 'powerhouse of the cell' due to their role in energy (ATP) production.",
+    ],
+    sscShortcuts: ["Pair each kingdom with ONE defining feature (Monera=no nucleus, Fungi=absorb nutrients, Plantae=photosynthesis, Animalia=multicellular+mobile) to distinguish them quickly."],
+  },
+  {
+    topicId: "ga-biology--plant-and-animal-physiology",
+    whatIsIt: ["How plants and animals carry out core life processes: photosynthesis, respiration, and reproduction."],
+    quickRevision: [
+      "Photosynthesis: plants use sunlight, water, and carbon dioxide to produce glucose and oxygen, primarily in chloroplasts (using chlorophyll).",
+      "Respiration (in both plants and animals) releases energy from glucose, generally consuming oxygen and releasing carbon dioxide.",
+      "Xylem transports water/minerals upward in plants; phloem transports food (glucose) throughout the plant.",
+      "Animals are broadly classified by reproduction type (oviparous — egg-laying, vs viviparous — live young) among other criteria.",
+    ],
+    sscShortcuts: ["Photosynthesis and respiration are near-opposite processes (CO2+water→glucose+O2, vs glucose+O2→CO2+water+energy) — learning one helps recall the other by contrast."],
+  },
+  {
+    topicId: "ga-static-gk--national-symbols-and-firsts",
+    whatIsIt: ["India's officially designated national symbols (anthem, animal, bird, flower, etc.) and notable 'first' achievements — a pure memorisation category."],
+    quickRevision: [
+      "National Anthem: Jana Gana Mana. National Song: Vande Mataram.",
+      "National Animal: Tiger. National Bird: Peacock. National Flower: Lotus. National Fruit: Mango. National Tree: Banyan.",
+      "National Emblem: adapted from the Lion Capital of Ashoka at Sarnath.",
+      "'Firsts' questions (first President, first person to achieve X) are a distinct, frequently-refreshed sub-category — cross-check any specific 'first' claim against a current, reliable source close to your exam date rather than relying on memory alone.",
+    ],
+    sscShortcuts: ["National symbols essentially never change — memorise this short fixed list once and it stays valid.", "For 'firsts', build your own updated list closer to the exam rather than trusting an old memorised set, since new 'firsts' can be added over time."],
+  },
+  {
+    topicId: "ga-static-gk--important-places-and-institutions",
+    whatIsIt: ["Notable places (headquarters cities, famous landmarks) and institutions (major universities, research bodies) commonly referenced in one-liner questions."],
+    quickRevision: [
+      "This category is best studied as themed pairs: institution ↔ headquarters city, landmark ↔ location/state.",
+      "Cross-reference with the Polity and Organizations topics — many institutions overlap (e.g. RBI's headquarters, Supreme Court's location).",
+    ],
+    sscShortcuts: ["Rather than memorising isolated facts, build small themed tables (all major bank headquarters, all major research institute locations) — grouping aids recall far more than a flat list."],
+  },
+  {
+    topicId: "ga-current-affairs--monthly-current-affairs-capsule",
+    whatIsIt: ["Recent events, appointments, and developments from the months leading up to the exam — by nature, the most time-sensitive GA category."],
+    quickRevision: [
+      "This is the one GA category that genuinely cannot be 'front-loaded' months in advance — it has to be built up continuously as the exam approaches.",
+      "Good sources: a reputable daily current-affairs digest, monthly compilation magazines, or government press releases — cross-check anything before treating it as exam-ready fact.",
+      "Focus on: government scheme launches/updates, appointments to key constitutional/international posts, major national/international summits, and sporting/award events from roughly the preceding 6-8 months.",
+    ],
+    sscShortcuts: ["Keep a running personal notes file updated weekly rather than trying to cram months of current affairs in the final week — recall is much stronger when built incrementally."],
+  },
+  {
+    topicId: "ga-art-and-culture--classical-dance-and-music",
+    whatIsIt: ["India's classical dance forms and the broad framework of Indian classical music (Hindustani and Carnatic traditions)."],
+    quickRevision: [
+      "Commonly recognised classical dance forms: Bharatanatyam (Tamil Nadu), Kathak (North India), Odissi (Odisha), Kuchipudi (Andhra Pradesh), Manipuri (Manipur), Mohiniyattam (Kerala), Kathakali (Kerala), Sattriya (Assam).",
+      "Indian classical music has two major traditions: Hindustani (North Indian) and Carnatic (South Indian).",
+      "Each classical dance form is traditionally associated with the state/region named alongside it above — a common pairing question.",
+    ],
+    sscShortcuts: ["Pair each dance form with its state of origin as a fixed two-item flashcard — that pairing is the single most commonly tested fact in this topic."],
+  },
+  {
+    topicId: "ga-art-and-culture--architecture-festivals-and-unesco-sites",
+    whatIsIt: ["Notable architectural styles/monuments, major festivals, and India's UNESCO World Heritage Sites (a list that grows over time as new sites are added)."],
+    quickRevision: [
+      "UNESCO sites are categorised as Cultural, Natural, or Mixed — India has sites in all three categories.",
+      "Since new sites are added periodically, treat any specific COUNT of 'how many UNESCO sites India has' as something to verify freshly rather than memorise as fixed.",
+      "Festivals are often tied to specific regions/religions/seasons — grouping them that way aids recall more than a flat list.",
+    ],
+    sscShortcuts: ["Don't memorise an exact UNESCO site count — look it up fresh closer to your exam date, since the list is periodically updated."],
+  },
+  {
+    topicId: "ga-environment--ecosystems-and-biodiversity",
+    whatIsIt: ["How ecosystems function (food chains, energy flow) and why biodiversity matters, including basic conservation vocabulary."],
+    quickRevision: [
+      "A food chain shows energy flow: producers (plants) → primary consumers (herbivores) → secondary consumers (carnivores), with energy decreasing at each level.",
+      "Biodiversity refers to the variety of life at genetic, species, and ecosystem levels.",
+      "India is home to several biodiversity hotspots and numerous national parks/wildlife sanctuaries — a common named-example question category.",
+      "Conservation terms: endangered, vulnerable, and extinct are distinct IUCN-style classifications of species risk.",
+    ],
+    sscShortcuts: ["Energy always DECREASES as you move up a food chain (roughly 10% transferred per level, per the classic '10% law' taught at this level) — a useful anchor fact."],
+  },
+  
