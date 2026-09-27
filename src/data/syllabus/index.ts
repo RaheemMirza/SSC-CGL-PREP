@@ -62,3 +62,17 @@ export function getTier2Subjects(): Subject[] {
 export function getHeroTopics(): Topic[] {
   return ALL_TOPICS.filter((t) => t.hasFullContent);
 }
+
+const PRIORITY_ORDER: Record<Topic["priority"], number> = { must: 0, should: 1, could: 2 };
+
+/** Topics of a given priority tier, sorted must-first/should-next/could-last
+ * even when called with "all" priorities at once — handy for building a
+ * single prioritised list. Defaults to Tier 1 subjects only, since Tier 2
+ * has no question content yet and surfacing it in a priority list would be
+ * a dead end. */
+export function getTopicsByPriority(priority: Topic["priority"] | "all" = "all", tier1Only = true): Topic[] {
+  const tier1Ids = new Set(getTier1Subjects().map((s) => s.id));
+  const pool = tier1Only ? ALL_TOPICS.filter((t) => tier1Ids.has(t.subjectId)) : ALL_TOPICS;
+  const filtered = priority === "all" ? pool : pool.filter((t) => t.priority === priority);
+  return [...filtered].sort((a, b) => PRIORITY_ORDER[a.priority] - PRIORITY_ORDER[b.priority]);
+}
