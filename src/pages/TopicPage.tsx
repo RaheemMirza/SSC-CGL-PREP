@@ -1,8 +1,9 @@
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { Sparkles, BookmarkPlus, PlayCircle, CalendarClock } from "lucide-react";
+import { Sparkles, BookmarkPlus, PlayCircle, CalendarClock, Lightbulb, ListChecks, AlertOctagon, Zap } from "lucide-react";
 import { PageHeader, Card, Button, Badge, StatTile, EmptyState } from "../components/ui/Primitives";
 import { getTopicById, getChapterById, getSubjectById } from "../data/syllabus";
 import { hasGenerator } from "../lib/generators";
+import { getLessonContent } from "../data/content";
 import { useDataStore } from "../store/useDataStore";
 import { useSessionStore } from "../store/useSessionStore";
 import { getFormulasBySubject } from "../data/formulas";
@@ -39,6 +40,7 @@ export default function TopicPage() {
   const relatedMistakes = mistakes.filter((m) => m.topicId === topic.id && !m.resolved);
   const bookmarked = isBookmarked(topic.id);
   const infinite = hasGenerator(topic.slug);
+  const lesson = getLessonContent(topic.id);
 
   function practice() {
     if (!topic) return;
@@ -77,11 +79,98 @@ export default function TopicPage() {
             <Sparkles size={12} /> Infinite practice
           </Badge>
         )}
-        {!topic.hasFullContent && <Badge className="bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">Light content — full lesson not authored yet</Badge>}
+        {!lesson && <Badge className="bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">Light content — full lesson not authored yet</Badge>}
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
+          {lesson && (
+            <Card className="p-5">
+              <div className="mb-3 flex items-center gap-2">
+                <Lightbulb size={16} className="text-brand-600" />
+                <h2 className="font-semibold text-slate-900 dark:text-slate-100">What this topic is</h2>
+              </div>
+              <div className="space-y-2">
+                {lesson.whatIsIt.map((para, i) => (
+                  <p key={i} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                    {para}
+                  </p>
+                ))}
+              </div>
+
+              {lesson.quickRevision.length > 0 && (
+                <div className="mt-4 rounded-lg border border-brand-100 bg-brand-50 p-3 dark:border-brand-900 dark:bg-brand-900/20">
+                  <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold text-brand-700 dark:text-brand-300">
+                    <ListChecks size={13} /> Key points to remember
+                  </p>
+                  <ul className="space-y-1.5">
+                    {lesson.quickRevision.map((point, i) => (
+                      <li key={i} className="flex gap-2 text-sm text-brand-900 dark:text-brand-100">
+                        <span className="text-brand-400">•</span> {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {lesson.keyFormulas && lesson.keyFormulas.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400">Key formulas &amp; facts</p>
+                  <div className="space-y-2">
+                    {lesson.keyFormulas.map((f, i) => (
+                      <div key={i} className="rounded-lg border border-slate-100 p-2.5 dark:border-slate-800">
+                        <p className="font-mono text-xs text-slate-800 dark:text-slate-100">{f.formula}</p>
+                        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{f.note}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {lesson.workedExamples && lesson.workedExamples.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 text-xs font-semibold text-slate-500 dark:text-slate-400">Worked example</p>
+                  {lesson.workedExamples.map((ex, i) => (
+                    <div key={i} className="rounded-lg border border-slate-100 p-3 dark:border-slate-800">
+                      <p className="text-sm text-slate-800 dark:text-slate-100">{ex.problem}</p>
+                      <p className="mt-1.5 text-sm text-slate-600 dark:text-slate-300">{ex.solution}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {lesson.sscShortcuts && lesson.sscShortcuts.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                    <Zap size={13} /> SSC shortcuts
+                  </p>
+                  <ul className="space-y-1">
+                    {lesson.sscShortcuts.map((s, i) => (
+                      <li key={i} className="flex gap-2 text-sm text-slate-600 dark:text-slate-300">
+                        <span className="text-emerald-500">•</span> {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {lesson.commonTraps && lesson.commonTraps.length > 0 && (
+                <div className="mt-4">
+                  <p className="mb-2 flex items-center gap-1.5 text-xs font-semibold text-rose-600 dark:text-rose-400">
+                    <AlertOctagon size={13} /> Common traps
+                  </p>
+                  <ul className="space-y-1">
+                    {lesson.commonTraps.map((t, i) => (
+                      <li key={i} className="flex gap-2 text-sm text-slate-600 dark:text-slate-300">
+                        <span className="text-rose-500">•</span> {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </Card>
+          )}
+
           <Card className="p-5">
             <h2 className="mb-3 font-semibold text-slate-900 dark:text-slate-100">Your progress</h2>
             {!progress ? (
