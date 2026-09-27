@@ -378,6 +378,16 @@ export const GA_LESSONS: LessonContent[] = [
     sscShortcuts: ["Flashcard the pairs (title↔author) directly rather than trying to 'understand' this topic — it's pure recall."],
   },
   {
+    topicId: "ga-important-days--important-national-and-international-days",
+    whatIsIt: ["Officially observed national and international days and what each commemorates — a stable, well-established list that rarely changes."],
+    quickRevision: [
+      "Republic Day: 26 January. Independence Day: 15 August. Gandhi Jayanti: 2 October.",
+      "International Women's Day: 8 March. World Environment Day: 5 June. Human Rights Day: 10 December.",
+      "Most 'important days' are fixed calendar dates set by government/UN designation and don't change year to year — a good, stable memorisation target.",
+    ],
+    sscShortcuts: ["Learn these chronologically by calendar month — it's easier to recall 'what's observed in March' than to recall a flat alphabetical list of day-names."],
+  },
+  {
     topicId: "ga-organizations-national-and-international--national-organizations-and-regulatory-bodies",
     whatIsIt: ["India's key regulatory/oversight bodies (RBI, SEBI, IRDAI, TRAI, etc.) and what sector each one regulates."],
     quickRevision: [
