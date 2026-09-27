@@ -74,6 +74,17 @@ export default function TopicPage() {
           <Icon size={13} /> {subject?.shortName}
         </span>
         <Badge className="bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300">{topic.difficultyTag}</Badge>
+        <Badge
+          className={
+            topic.priority === "must"
+              ? "bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300"
+              : topic.priority === "should"
+                ? "bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300"
+                : "bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
+          }
+        >
+          {topic.priority === "must" ? "Must-do" : topic.priority === "should" ? "Should-do" : "Could-do"}
+        </Badge>
         {infinite && (
           <Badge className="bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300">
             <Sparkles size={12} /> Infinite practice
