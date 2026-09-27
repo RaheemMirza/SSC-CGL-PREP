@@ -107,14 +107,18 @@ export function generateStudyPlan(
   }
 
   // Not-yet-started topics in whichever subjects you flagged as weak —
-  // rotated across the week rather than always the same 1-3 topics.
-  const notStarted: { topicId: string; topicName: string; subjectId: SubjectId }[] = [];
+  // sorted must-first so the highest-frequency new ground gets covered
+  // before lower-priority topics, then rotated across the week rather
+  // than always the same 1-3 topics.
+  const priorityRank: Record<string, number> = { must: 0, should: 1, could: 2 };
+  const notStarted: { topicId: string; topicName: string; subjectId: SubjectId; priority: string }[] = [];
   for (const subjectId of inputs.weakSubjects) {
     for (const topic of getTopicsBySubject(subjectId)) {
       const p = progressMap[topic.id];
-      if (!p || p.attempted === 0) notStarted.push({ topicId: topic.id, topicName: topic.name, subjectId });
+      if (!p || p.attempted === 0) notStarted.push({ topicId: topic.id, topicName: topic.name, subjectId, priority: topic.priority });
     }
   }
+  notStarted.sort((a, b) => priorityRank[a.priority] - priorityRank[b.priority]);
   const learnSlotsPerDay = inputs.level === "beginner" ? 2 : inputs.level === "intermediate" ? 1 : 0;
 
   const items: PlanItem[] = [];
