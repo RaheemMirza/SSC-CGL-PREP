@@ -1,4 +1,4 @@
-import type { Chapter, DifficultyLevel, SubjectId, Subtopic, Topic } from "@/types";
+import type { Chapter, DifficultyLevel, SubjectId, Subtopic, Topic, TopicPriority } from "@/types";
 
 export function slugify(s: string): string {
   return s
@@ -12,6 +12,10 @@ export interface TopicSpec {
   name: string;
   summary: string;
   difficulty?: DifficultyLevel;
+  /** Defaults to "should" if not set — only call out "must" (high-frequency,
+   * study first) or "could" (lower-frequency, safe to deprioritise) topics
+   * explicitly; everything else is a solid, regular "should". */
+  priority?: TopicPriority;
   tags?: string[];
   subtopics?: string[];
   hasFullContent?: boolean;
@@ -51,6 +55,7 @@ export function buildTopics(chapter: Chapter, specs: TopicSpec[]): Topic[] {
       slug,
       order: index + 1,
       difficultyTag: spec.difficulty ?? "Medium",
+      priority: spec.priority ?? "should",
       tags: spec.tags ?? [],
       subtopics,
       hasFullContent: spec.hasFullContent ?? false,
