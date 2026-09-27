@@ -358,3 +358,32 @@ export const GA_LESSONS: LessonContent[] = [
     ],
     sscShortcuts: ["Group terminology by sport as flashcard sets — cricket terms, football terms, etc. — rather than one long mixed list."],
   },
+{
+    topicId: "ga-organizations-national-and-international--national-organizations-and-regulatory-bodies",
+    whatIsIt: ["India's key regulatory/oversight bodies (RBI, SEBI, IRDAI, TRAI, etc.) and what sector each one regulates."],
+    quickRevision: [
+      "RBI (Reserve Bank of India): regulates banking and monetary policy.",
+      "SEBI (Securities and Exchange Board of India): regulates the securities/stock markets.",
+      "IRDAI (Insurance Regulatory and Development Authority of India): regulates the insurance sector.",
+      "TRAI (Telecom Regulatory Authority of India): regulates the telecommunications sector.",
+    ],
+    sscShortcuts: ["Pair each regulator with the ONE sector it governs — RBI=banking, SEBI=stock markets, IRDAI=insurance, TRAI=telecom — a clean one-to-one mapping."],
+  },
+  {
+    topicId: "ga-miscellaneous-gk--abbreviations-and-full-forms",
+    whatIsIt: ["Common abbreviations (organisations, technical terms, government schemes) and their full forms — a pure recall topic best studied in themed batches."],
+    quickRevision: [
+      "Group abbreviations by domain (finance: RBI/SEBI/GST; technology: HTTP/USB; government: UPSC/CAG) rather than studying them as one long alphabetical list.",
+      "Where an abbreviation overlaps with a topic covered elsewhere (like RBI in Economics or UPSC in Polity), reuse that context to reinforce recall instead of learning it twice, separately.",
+    ],
+    sscShortcuts: ["Whenever you learn a new institution/body elsewhere in GA, note its abbreviation at the same time — batching this way is far more efficient than a separate abbreviations-only study session."],
+  },
+  {
+    topicId: "ga-miscellaneous-gk--miscellaneous-one-liners",
+    whatIsIt: ["A catch-all category for well-known facts that don't fit neatly into the other GA chapters — typically tested as short, direct one-liner questions."],
+    quickRevision: [
+      "Because this category is deliberately broad, the highest-value strategy is reviewing previous years' actual one-liner questions (once you have a genuine, sourced PYQ set) to see what pattern of facts SSC tends to draw from.",
+      "Keep a running personal notes file for odd facts you encounter while studying other GA chapters — many 'miscellaneous' one-liners are really just spillover from History/Science/Polity.",
+    ],
+  },
+];
