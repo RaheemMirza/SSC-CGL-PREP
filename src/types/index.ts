@@ -276,6 +276,7 @@ export interface StudyPlanInputs {
 
 export interface PlanItem {
   id: string;
+  date: string; // ISO yyyy-mm-dd — which day of the plan this item belongs to
   subjectId: SubjectId;
   topicId?: string;
   topicName?: string;
@@ -318,10 +319,10 @@ export interface FormulaNote {
 export interface LessonContent {
   topicId: string; // matches Topic.id
   whatIsIt: string[]; // paragraphs, plain-language explanation
-  keyFormulas: FormulaNote[];
-  workedExamples: WorkedExample[]; // progressively harder
-  sscShortcuts: string[];
-  commonTraps: string[];
+  keyFormulas?: FormulaNote[];
+  workedExamples?: WorkedExample[]; // progressively harder
+  sscShortcuts?: string[];
+  commonTraps?: string[];
   quickRevision: string[]; // bullet points for the "quick revision" step
 }
 
