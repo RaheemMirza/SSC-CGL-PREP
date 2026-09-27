@@ -11,7 +11,7 @@ import { recomputeAllProgress, computeTopicBenchmarks, getWeakTopics } from "../
 import { applySessionOutcome, checkNewBadges } from "../lib/gamification";
 import { createRevisionSchedule } from "../lib/revisionScheduler";
 import { ALL_QUESTIONS } from "../data/questions";
-import { getTopicById } from "../data/syllabus";
+import { getTopicById, getTopicsByPriority } from "../data/syllabus";
 import { useDataStore } from "./useDataStore";
 
 export interface PracticeResultSummary {
@@ -44,6 +44,7 @@ interface SessionState {
   startPracticeSubjectMixed: (subjectId: SubjectId, count: number, sessionType?: SessionType) => void;
   startPracticeAllMixed: (count: number, sessionType?: SessionType) => void;
   startWeakAreaPractice: (count: number) => void;
+  startPriorityPractice: (priority: "must" | "should" | "could", count: number) => void;
   startFromQuestions: (questions: Question[], label: string, sessionType: SessionType) => void;
 
   selectAnswer: (questionId: string, index: number) => void;
@@ -188,6 +189,18 @@ export const useSessionStore = create<SessionState>((set, get) => {
       const topics = weak.map((t) => getTopicById(t.topicId)).filter((t): t is Topic => !!t);
       const qs = selectQuestionsForTopics(topics, count, { recentlySeen });
       startPracticeFromQuestions(qs, "Weak-area practice", "weak-area");
+    },
+
+    startPriorityPractice: (priority, count) => {
+      const recentlySeen = useDataStore.getState().recentlySeenQuestions;
+      const topics = getTopicsByPriority(priority);
+      if (topics.length === 0) {
+        set({ error: "No topics found for that priority tier." });
+        return;
+      }
+      const qs = selectQuestionsForTopics(topics, count, { recentlySeen });
+      const label = priority === "must" ? "Must-do topics" : priority === "should" ? "Should-do topics" : "Could-do topics";
+      startPracticeFromQuestions(qs, label, "custom");
     },
 
     startFromQuestions: (questions, label, sessionType) => startPracticeFromQuestions(questions, label, sessionType),
