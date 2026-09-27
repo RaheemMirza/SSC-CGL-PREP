@@ -317,4 +317,44 @@ export const GA_LESSONS: LessonContent[] = [
     ],
     sscShortcuts: ["Energy always DECREASES as you move up a food chain (roughly 10% transferred per level, per the classic '10% law' taught at this level) — a useful anchor fact."],
   },
-  
+  {
+    topicId: "ga-environment--environmental-issues-and-conventions",
+    whatIsIt: ["Major global environmental issues (climate change, ozone depletion) and the international conventions/protocols addressing them."],
+    quickRevision: [
+      "Montreal Protocol (1987): addresses substances that deplete the ozone layer.",
+      "Kyoto Protocol (1997): an early international agreement on reducing greenhouse gas emissions.",
+      "Paris Agreement (2015): a broader, near-global agreement on limiting global temperature rise, adopted at COP21.",
+      "Ramsar Convention (1971): an international treaty for the conservation of wetlands.",
+    ],
+    sscShortcuts: ["Pair each convention/protocol with the ONE environmental issue it specifically addresses (Montreal=ozone, Kyoto/Paris=climate/emissions, Ramsar=wetlands) — that pairing is what's usually tested."],
+  },
+  {
+    topicId: "ga-government-schemes--major-central-government-schemes",
+    whatIsIt: ["Central government welfare/development schemes — their stated objective, and typically the ministry responsible. Scheme details, budgets and even which schemes are currently active change over time, so this is best studied as 'objective ↔ scheme name' pairs verified against a current source rather than memorised once and trusted indefinitely."],
+    quickRevision: [
+      "When studying a scheme, focus on: its core objective (what problem it addresses), the sector/ministry it falls under, and roughly when it was launched.",
+      "Group schemes by sector (financial inclusion, health, rural employment, skill development, housing) — this makes it much easier to recall the RIGHT scheme when a question describes an objective.",
+      "Because schemes are periodically renamed, merged, or updated, verify current scheme names/status against an up-to-date source close to your exam rather than relying solely on older notes.",
+    ],
+    sscShortcuts: ["Build your own scheme table as you study current affairs, refreshed every month rather than compiled once and left static."],
+  },
+  {
+    topicId: "ga-awards-and-honours--national-and-international-awards",
+    whatIsIt: ["The framework of major awards — India's civilian honours (Bharat Ratna, Padma awards) and major international awards (Nobel Prizes) — rather than a list of specific recent winners, which changes every year."],
+    quickRevision: [
+      "Bharat Ratna is India's highest civilian award; Padma Vibhushan, Padma Bhushan, and Padma Shri follow in descending order of the Padma award tier.",
+      "Nobel Prizes are awarded annually across six categories: Physics, Chemistry, Physiology or Medicine, Literature, Peace, and Economic Sciences.",
+      "Specific recent winners change every year — treat 'who won X award recently' as a current-affairs fact to verify freshly, not something to memorise far in advance.",
+    ],
+    sscShortcuts: ["Know the STRUCTURE (award tiers, Nobel categories) cold — that part never changes. Layer in the current year's specific winners only in the weeks right before your exam."],
+  },
+  {
+    topicId: "ga-sports--sports-terminology-and-events",
+    whatIsIt: ["Basic terminology and scoring/rules vocabulary across major sports, plus the general structure of recurring international sporting events."],
+    quickRevision: [
+      "Learn each major sport's core terminology (e.g. cricket: over/wicket/innings; football: offside/corner/penalty; badminton: rally/smash/let) as a themed vocabulary set.",
+      "The Olympic Games are held every 4 years (with separate Winter and Summer editions); the Commonwealth Games and Asian Games also follow multi-year cycles.",
+      "Host cities/countries for upcoming major events are worth checking close to your exam, since this is effectively a current-affairs-adjacent fact.",
+    ],
+    sscShortcuts: ["Group terminology by sport as flashcard sets — cricket terms, football terms, etc. — rather than one long mixed list."],
+  },
