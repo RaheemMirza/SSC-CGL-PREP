@@ -358,7 +358,26 @@ export const GA_LESSONS: LessonContent[] = [
     ],
     sscShortcuts: ["Group terminology by sport as flashcard sets — cricket terms, football terms, etc. — rather than one long mixed list."],
   },
-{
+  {
+    topicId: "ga-sports--recent-sporting-achievements",
+    whatIsIt: ["Recent medals, records, and notable performances — by nature the most time-sensitive sports sub-topic, similar to current affairs."],
+    quickRevision: [
+      "This category should be studied the same way as current affairs: build a running list from recent months rather than relying on older, possibly outdated notes.",
+      "Focus especially on the most recent major multi-sport event (Olympics/Asian Games/Commonwealth Games) if one has occurred close to your exam date.",
+    ],
+    sscShortcuts: ["Treat this exactly like the current-affairs capsule — refresh it weekly rather than memorising it once."],
+  },
+  {
+    topicId: "ga-books-and-authors--famous-books-and-authors",
+    whatIsIt: ["Pairs well-known books with their authors — a pure recall topic, most useful when studied as fixed pairs rather than descriptions."],
+    quickRevision: [
+      "Study as strict pairs: Book title ↔ Author name — the exact pairing is what's tested, not the book's content.",
+      "Group by category (autobiographies, classic Indian literature, internationally famous works) to build separate manageable clusters instead of one long list.",
+      "Recently published/awarded books are a semi-current-affairs sub-category — worth a fresh check nearer your exam.",
+    ],
+    sscShortcuts: ["Flashcard the pairs (title↔author) directly rather than trying to 'understand' this topic — it's pure recall."],
+  },
+  {
     topicId: "ga-organizations-national-and-international--national-organizations-and-regulatory-bodies",
     whatIsIt: ["India's key regulatory/oversight bodies (RBI, SEBI, IRDAI, TRAI, etc.) and what sector each one regulates."],
     quickRevision: [
