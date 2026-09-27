@@ -101,6 +101,23 @@ git push -u origin main
 
 Then follow Option A's steps 2–4 above.
 
+## 3c. Must / Should / Could topic priority
+
+Every Tier 1 topic (all 103) carries a `priority: "must" | "should" | "could"` —
+a stable, general guide to how consistently that topic shows up in the real
+exam, based on well-established SSC CGL prep-community consensus (not an exact
+guaranteed question count, which varies shift to shift). It defaults to
+`"should"`; only genuinely high-frequency (`"must"`) or narrower/lower-frequency
+(`"could"`) topics are called out explicitly in `src/data/syllabus/{quant,reasoning,english,ga}.ts`.
+
+This feeds three places:
+- **Practice hub** — a "Drill must-do topics" card, plus a by-priority section.
+- **Study Planner** — not-yet-started topics are sorted must-first before being
+  rotated across the week.
+- **Dashboard** — a "must-do topic coverage" widget (X/29 must-do topics
+  attempted at least once), useful from day one even before any weak-topic
+  data exists.
+
 ## 4. Project structure
 
 ```
@@ -228,11 +245,18 @@ merged into the PYQ bank).
 
 Being direct about this rather than burying it:
 
-- **Full lesson content** (`LessonContent`: worked examples, SSC shortcuts, common
-  traps) is only structurally supported — it hasn't been authored for any topic yet.
-  The Topic page falls back to the topic's one-line summary + related formulas.
-  `src/data/content/` is a placeholder directory for this.
-- **GA current-affairs notes** (`GaNote[]`) — same story, not authored.
+- **All 103 Tier 1 topics now have real lesson content** (`src/data/content/{quant,reasoning,english,ga}.ts`
+  — a brief explanation plus key formulas/facts, shortcuts, common traps, and a
+  "key points" quick-revision list; worked examples where they add real value). The
+  Topic page renders this above the practice button, before you'd start drilling
+  questions. GA content deliberately sticks to stable, well-established facts
+  (Constitution dates, physics/chemistry fundamentals, national symbols) and, for
+  genuinely time-sensitive sub-topics (current affairs, recent sporting achievements,
+  specific award winners, government scheme details), teaches the *study strategy*
+  instead of asserting specific facts that would go stale or risk being wrong —
+  consistent with this project's "never assert something as fact that might not be"
+  policy. `GaNote[]` (a separate, more current-affairs-dated note format) still isn't
+  populated — the `LessonContent` GA entries cover the stable material instead.
 - **Tier 2 mocks** — `mockTestEngine.buildTier2Paper1Mock()` works structurally (reads
   `TIER2_PAPER1_CONFIG`, correctly skips the non-MCQ DEST typing section), but there's
   no Tier 2 question content yet, so it isn't wired into any UI button. Tier 1 is
