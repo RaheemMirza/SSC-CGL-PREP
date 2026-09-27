@@ -11,13 +11,14 @@ import {
   generateRecommendations,
 } from "../lib/adaptiveEngine";
 import { getDueRevisions } from "../lib/revisionScheduler";
-import { getTopicById, getSubjectById } from "../data/syllabus";
+import { getTopicById, getSubjectById, getTopicsByPriority } from "../data/syllabus";
 import { colorClassesFor, iconFor } from "../lib/ui/subjectTheme";
 
 export default function Dashboard() {
   const navigate = useNavigate();
   const { attempts, topicProgress, gamification, mockResults, revisionSchedules } = useDataStore();
   const startWeakAreaPractice = useSessionStore((s) => s.startWeakAreaPractice);
+  const startPriorityPractice = useSessionStore((s) => s.startPriorityPractice);
 
   const totalAttempted = attempts.filter((a) => a.correct !== null).length;
   const nameOf = (topicId: string) => getTopicById(topicId)?.name ?? topicId;
@@ -28,10 +29,19 @@ export default function Dashboard() {
         <PageHeader title="Welcome" description="Nothing logged yet — start with a quick mixed quiz or jump straight into a full mock, and this page will fill in with your real numbers." />
         <EmptyState
           title="No practice data yet"
-          description="Every stat on this dashboard is built from questions you've actually answered. Take a short diagnostic to get started."
+          description="Every stat on this dashboard is built from questions you've actually answered. Take a short diagnostic to get started, or if you're short on time before the exam, jump straight to the highest-frequency topics."
           action={
-            <div className="flex gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
               <Button onClick={() => navigate("/practice")}>Start a quick quiz</Button>
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  startPriorityPractice("must", 30);
+                  if (!useSessionStore.getState().error) navigate("/practice/run");
+                }}
+              >
+                Drill must-do topics
+              </Button>
               <Button variant="secondary" onClick={() => navigate("/mock")}>
                 Take a full mock
               </Button>
@@ -49,6 +59,8 @@ export default function Dashboard() {
   const speedTrend = computeSpeedTrend(attempts);
   const recommendations = generateRecommendations(topicProgress, nameOf);
   const recentMocks = [...mockResults].sort((a, b) => b.completedAt - a.completedAt).slice(0, 3);
+  const mustTopics = getTopicsByPriority("must");
+  const mustCovered = mustTopics.filter((t) => (topicProgress[t.id]?.attempted ?? 0) > 0).length;
 
   return (
     <div>
@@ -95,6 +107,31 @@ export default function Dashboard() {
                 </div>
               ))}
             </div>
+          </Card>
+
+          <Card className="p-5">
+            <div className="mb-3 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Target size={16} className="text-rose-500" />
+                <h2 className="font-semibold text-slate-900 dark:text-slate-100">Must-do topic coverage</h2>
+              </div>
+              <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                {mustCovered}/{mustTopics.length}
+              </span>
+            </div>
+            <ProgressBar value={(mustCovered / mustTopics.length) * 100} className="bg-rose-500" />
+            <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">The highest-frequency topics across all four subjects — the ones worth covering first under real time pressure.</p>
+            <Button
+              size="sm"
+              variant="secondary"
+              className="mt-3 w-full"
+              onClick={() => {
+                startPriorityPractice("must", 30);
+                if (!useSessionStore.getState().error) navigate("/practice/run");
+              }}
+            >
+              Drill must-do topics
+            </Button>
           </Card>
 
           <Card className="p-5">
