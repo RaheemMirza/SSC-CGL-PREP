@@ -22,6 +22,20 @@ function newId(prefix: string): string {
   return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+/** PlanItem ids look like "plan-<date>-<action>-<subject>-<topic>-<suffix>"
+ * — everything except the trailing suffix is the item's logical identity.
+ * Stripping it lets us recognise "this is the same plan slot as before"
+ * across a regenerate, so a completed item doesn't come back unchecked
+ * just because the plan was rebuilt. */
+function stripIdSuffix(id: string): string {
+  return id.replace(/-[a-z0-9]+$/, "");
+}
+
+function carryOverDoneStatus(previousItems: PlanItem[], nextItems: PlanItem[]): PlanItem[] {
+  const doneKeys = new Set(previousItems.filter((i) => i.done).map((i) => stripIdSuffix(i.id)));
+  return nextItems.map((i) => (doneKeys.has(stripIdSuffix(i.id)) ? { ...i, done: true } : i));
+}
+
 interface DataState {
   attempts: AttemptRecord[];
   sessions: PracticeSession[];
@@ -133,15 +147,17 @@ export const useDataStore = create<DataState>((set, get) => {
     },
 
     setStudyPlanInputs: (inputs) => {
-      const items = generateStudyPlan(inputs, get().topicProgress, (id) => getTopicById(id)?.name ?? id);
-      persistence.setStudyPlan(inputs, items);
+      const items = generateStudyPlan(inputs, get().topicProgress, get().revisionSchedules, (id) => getTopicById(id)?.name ?? id);
+      const merged = carryOverDoneStatus(get().planItems, items);
+      persistence.setStudyPlan(inputs, merged);
       get().refresh();
     },
     regeneratePlan: () => {
       const inputs = get().studyPlan;
       if (!inputs) return;
-      const items = generateStudyPlan(inputs, get().topicProgress, (id) => getTopicById(id)?.name ?? id);
-      persistence.setStudyPlan(inputs, items);
+      const items = generateStudyPlan(inputs, get().topicProgress, get().revisionSchedules, (id) => getTopicById(id)?.name ?? id);
+      const merged = carryOverDoneStatus(get().planItems, items);
+      persistence.setStudyPlan(inputs, merged);
       get().refresh();
     },
     togglePlanItemDone: (id) => {
