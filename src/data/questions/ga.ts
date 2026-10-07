@@ -20,6 +20,27 @@ const mechanics = findTopic(gaTopics, "mechanics-and-basic-forces");
 const periodicTable = findTopic(gaTopics, "elements-compounds-and-the-periodic-table");
 const cellBiology = findTopic(gaTopics, "cell-biology-and-classification");
 const importantPlaces = findTopic(gaTopics, "important-places-and-institutions");
+const judiciary = findTopic(gaTopics, "judiciary-and-constitutional-bodies");
+const localGovt = findTopic(gaTopics, "local-self-government");
+const fiveYearPlans = findTopic(gaTopics, "indian-economy-and-five-year-plans");
+const moneyBanking = findTopic(gaTopics, "money-banking-and-budget");
+const heatLightSound = findTopic(gaTopics, "heat-light-and-sound");
+const electricityMagnetism = findTopic(gaTopics, "electricity-and-magnetism");
+const acidsBases = findTopic(gaTopics, "acids-bases-and-everyday-chemistry");
+const plantAnimalPhysiology = findTopic(gaTopics, "plant-and-animal-physiology");
+const classicalDance = findTopic(gaTopics, "classical-dance-and-music");
+const architectureUnesco = findTopic(gaTopics, "architecture-festivals-and-unesco-sites");
+const envIssues = findTopic(gaTopics, "environmental-issues-and-conventions");
+const govtSchemes = findTopic(gaTopics, "major-central-government-schemes");
+const awards = findTopic(gaTopics, "national-and-international-awards");
+const sportsTerms = findTopic(gaTopics, "sports-terminology-and-events");
+const recentSports = findTopic(gaTopics, "recent-sporting-achievements");
+const booksAuthors = findTopic(gaTopics, "famous-books-and-authors");
+const importantDays = findTopic(gaTopics, "important-national-and-international-days");
+const intlOrgs = findTopic(gaTopics, "international-organizations");
+const nationalOrgs = findTopic(gaTopics, "national-organizations-and-regulatory-bodies");
+const abbreviations = findTopic(gaTopics, "abbreviations-and-full-forms");
+const miscOneLiners = findTopic(gaTopics, "miscellaneous-one-liners");
 
 export const gaQuestions: Question[] = [
   // ---- Modern India & Freedom Struggle (hero, must) ------------------------
@@ -170,5 +191,164 @@ export const gaQuestions: Question[] = [
     { question: "The headquarters of the Reserve Bank of India is located in:", options: ["New Delhi", "Mumbai", "Kolkata", "Chennai"], answerIndex: 1, explanation: "The Reserve Bank of India is headquartered in Mumbai.", difficulty: "Easy", subtopicName: "Headquarters of institutions", expectedTimeSeconds: 20 },
     { question: "The Sun Temple at Konark, a UNESCO World Heritage Site, is located in which state?", options: ["Odisha", "Tamil Nadu", "Karnataka", "Gujarat"], answerIndex: 0, explanation: "The Konark Sun Temple is located in Odisha.", difficulty: "Medium", subtopicName: "Famous monuments", expectedTimeSeconds: 25 },
     { question: "The headquarters of the Election Commission of India is located in:", options: ["Mumbai", "New Delhi", "Chennai", "Kolkata"], answerIndex: 1, explanation: "The Election Commission of India is headquartered in New Delhi.", difficulty: "Easy", subtopicName: "Headquarters of institutions", expectedTimeSeconds: 20 },
+  ]),
+  // ---- more depth on Modern India (must) -----------------------------------
+  ...buildQuestions(modernIndia, [
+    { question: "The Rowlatt Act of 1919, which triggered widespread protest across India, primarily allowed the British government to:", options: ["Increase land taxes", "Imprison people without trial", "Ban Indian-owned newspapers only", "Partition provinces"], answerIndex: 1, explanation: "The Rowlatt Act (1919) allowed the government to imprison suspects without trial, provoking nationwide protest and contributing to the Jallianwala Bagh tragedy.", difficulty: "Hard", subtopicName: "1857 Revolt", expectedTimeSeconds: 40 },
+    { question: "Who was the leader of the 1857 revolt at Jhansi?", options: ["Rani Lakshmibai", "Begum Hazrat Mahal", "Nana Sahib", "Tantia Tope"], answerIndex: 0, explanation: "Rani Lakshmibai led the resistance at Jhansi during the 1857 revolt.", difficulty: "Medium", subtopicName: "1857 Revolt", expectedTimeSeconds: 25 },
+    { question: "The Lahore Session of the Indian National Congress in 1929, presided over by Jawaharlal Nehru, is significant for:", options: ["Demanding complete independence (Purna Swaraj)", "Launching the Quit India Movement", "Partitioning Bengal", "Adopting the national flag"], answerIndex: 0, explanation: "The 1929 Lahore Session formally adopted 'Purna Swaraj' (complete independence) as the Congress goal, declaring 26 January 1930 as Independence Day.", difficulty: "Hard", subtopicName: "Indian National Congress & major movements", expectedTimeSeconds: 40 },
+  ]),
+  // ---- more depth on Constitution (must) -----------------------------------
+  ...buildQuestions(constitution, [
+    { question: "The concept of 'Judicial Review' in the Indian Constitution is most influenced by the Constitution of:", options: ["USA", "UK", "Canada", "Australia"], answerIndex: 0, explanation: "Judicial Review — the power of courts to examine the constitutionality of laws — was borrowed from the US Constitution.", difficulty: "Hard", subtopicName: "Preamble & salient features", expectedTimeSeconds: 35 },
+    { question: "Which part of the Indian Constitution deals with the Fundamental Duties of citizens?", options: ["Part III", "Part IV", "Part IVA", "Part V"], answerIndex: 2, explanation: "Fundamental Duties are listed in Part IVA (Article 51A) of the Constitution.", difficulty: "Hard", subtopicName: "Fundamental Duties", expectedTimeSeconds: 35 },
+    { question: "The longest-serving provision for a written constitution in the world, the Indian Constitution, originally had how many Parts (approximately, at adoption)?", options: ["12", "22", "25", "30"], answerIndex: 1, explanation: "The Constitution of India, as originally adopted in 1949, had 22 Parts (the number of Schedules and Articles has grown since through amendments).", difficulty: "Hard", expectedTimeSeconds: 40 },
+  ]),
+  // ---- more depth on Human Body (must) -------------------------------------
+  ...buildQuestions(humanBody, [
+    { question: "Which organ in the human body produces insulin?", options: ["Liver", "Pancreas", "Kidney", "Spleen"], answerIndex: 1, explanation: "The pancreas produces insulin, which regulates blood sugar levels.", difficulty: "Easy", subtopicName: "Human body systems", expectedTimeSeconds: 20 },
+    { question: "The total number of bones in an adult human body is:", options: ["196", "206", "216", "226"], answerIndex: 1, explanation: "An adult human skeleton has 206 bones (infants are born with more, which fuse together over time).", difficulty: "Medium", subtopicName: "Human body systems", expectedTimeSeconds: 25 },
+    { question: "Deficiency of iodine in the human diet primarily leads to which condition?", options: ["Anaemia", "Goitre", "Rickets", "Scurvy"], answerIndex: 1, explanation: "Iodine deficiency impairs thyroid hormone production and causes goitre (enlargement of the thyroid gland).", difficulty: "Medium", subtopicName: "Common diseases & causes", expectedTimeSeconds: 25 },
+  ]),
+  // ---- more depth on Indian Geography (must) -------------------------------
+  ...buildQuestions(indianGeography, [
+    { question: "Which Indian state is the largest producer of coffee?", options: ["Kerala", "Karnataka", "Tamil Nadu", "Andhra Pradesh"], answerIndex: 1, explanation: "Karnataka is India's largest coffee-producing state.", difficulty: "Medium", subtopicName: "Agriculture & cropping patterns", expectedTimeSeconds: 25 },
+    { question: "The Chilika Lake, India's largest coastal lagoon, is located in which state?", options: ["Odisha", "West Bengal", "Andhra Pradesh", "Kerala"], answerIndex: 0, explanation: "Chilika Lake, the largest coastal lagoon in India, is located in Odisha.", difficulty: "Medium", subtopicName: "Physiography of India", expectedTimeSeconds: 25 },
+  ]),
+  // ---- more depth on National Symbols (must) -------------------------------
+  ...buildQuestions(staticSymbols, [
+    { question: "What is the National Fruit of India?", options: ["Banana", "Mango", "Apple", "Guava"], answerIndex: 1, explanation: "The Mango is India's National Fruit.", difficulty: "Easy", subtopicName: "National symbols", expectedTimeSeconds: 15 },
+    { question: "What is the National Tree of India?", options: ["Neem", "Peepal", "Banyan", "Mango"], answerIndex: 2, explanation: "The Banyan Tree is India's National Tree.", difficulty: "Easy", subtopicName: "National symbols", expectedTimeSeconds: 15 },
+    { question: "Who was the first Indian to win an individual Olympic gold medal?", options: ["Milkha Singh", "Abhinav Bindra", "Rajyavardhan Singh Rathore", "Leander Paes"], answerIndex: 1, explanation: "Abhinav Bindra won India's first individual Olympic gold medal, in shooting at the 2008 Beijing Olympics.", difficulty: "Medium", subtopicName: "Notable firsts", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Judiciary & Constitutional Bodies (could, new) -----------------------
+  ...buildQuestions(judiciary, [
+    { question: "The Supreme Court of India was inaugurated in which year?", options: ["1947", "1950", "1952", "1935"], answerIndex: 1, explanation: "The Supreme Court of India came into being on 26 January 1950, the same day the Constitution took effect.", difficulty: "Medium", subtopicName: "Supreme Court & High Courts", expectedTimeSeconds: 25 },
+    { question: "Who appoints the Chief Election Commissioner of India?", options: ["The Prime Minister", "The President of India", "The Chief Justice of India", "Parliament by a special majority"], answerIndex: 1, explanation: "The Chief Election Commissioner and other Election Commissioners are appointed by the President of India.", difficulty: "Medium", subtopicName: "Election Commission", expectedTimeSeconds: 25 },
+    { question: "The Comptroller and Auditor General (CAG) of India audits the accounts of:", options: ["Only the central government", "Only state governments", "Both the Union and State governments", "Only public sector banks"], answerIndex: 2, explanation: "The CAG audits the accounts of both the Union government and all State governments.", difficulty: "Medium", subtopicName: "CAG & other constitutional bodies", expectedTimeSeconds: 25 },
+    { question: "The Election Commission of India was originally (at its creation in 1950) composed of:", options: ["A single Election Commissioner", "Three Election Commissioners", "Five Election Commissioners", "Seven Election Commissioners"], answerIndex: 0, explanation: "The Election Commission was originally a single-member body; it became multi-member only later (from 1989 onward, with some interim changes).", difficulty: "Hard", subtopicName: "Election Commission", tags: ["common-trap"], expectedTimeSeconds: 35 },
+  ]),
+  // ---- Local Self-Government (could, new) ------------------------------------
+  ...buildQuestions(localGovt, [
+    { question: "The 73rd Constitutional Amendment Act (1992) relates to:", options: ["Urban Municipalities", "Panchayati Raj Institutions", "The judiciary", "Fundamental Rights"], answerIndex: 1, explanation: "The 73rd Amendment gave constitutional status to Panchayati Raj (rural local government) institutions.", difficulty: "Medium", subtopicName: "Panchayati Raj (73rd Amendment)", expectedTimeSeconds: 25 },
+    { question: "The Panchayati Raj system in India is typically structured as a:", options: ["Single-tier system", "Two-tier system", "Three-tier system", "Four-tier system"], answerIndex: 2, explanation: "The Panchayati Raj system is a three-tier system: Gram Panchayat (village), Panchayat Samiti (block), and Zila Parishad (district).", difficulty: "Medium", subtopicName: "Panchayati Raj (73rd Amendment)", expectedTimeSeconds: 25 },
+    { question: "The 74th Constitutional Amendment Act (1992) relates to:", options: ["Panchayati Raj institutions", "Urban local bodies (Municipalities)", "The Election Commission", "State Finance Commissions only"], answerIndex: 1, explanation: "The 74th Amendment gave constitutional status to urban local bodies such as Municipalities and Municipal Corporations.", difficulty: "Medium", subtopicName: "Municipalities (74th Amendment)", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Indian Economy & Five-Year Plans (could, new) -------------------------
+  ...buildQuestions(fiveYearPlans, [
+    { question: "India's First Five-Year Plan (1951-56) placed the highest priority on:", options: ["Heavy industries", "Agriculture", "Information technology", "Defence production"], answerIndex: 1, explanation: "The First Five-Year Plan (1951-56) prioritised agriculture, given the urgent need to boost food production after independence.", difficulty: "Medium", subtopicName: "Five-Year Plans overview", expectedTimeSeconds: 30 },
+    { question: "The Planning Commission of India was replaced by which body in 2015?", options: ["Finance Commission", "NITI Aayog", "National Development Council", "Reserve Bank of India"], answerIndex: 1, explanation: "NITI Aayog (National Institution for Transforming India) replaced the Planning Commission in January 2015.", difficulty: "Medium", subtopicName: "Five-Year Plans overview", expectedTimeSeconds: 25 },
+    { question: "The economic reforms of 1991 in India are most associated with which policy shift?", options: ["Nationalisation of major industries", "Liberalisation, Privatisation and Globalisation (LPG)", "A return to the Permanent Settlement", "Abolition of income tax"], answerIndex: 1, explanation: "The 1991 reforms, initiated under economic crisis, introduced Liberalisation, Privatisation and Globalisation (LPG) as India's new economic direction.", difficulty: "Medium", subtopicName: "Economic reforms (1991 onward)", expectedTimeSeconds: 30 },
+  ]),
+  // ---- Money, Banking & Budget (could, new) ----------------------------------
+  ...buildQuestions(moneyBanking, [
+    { question: "The Reserve Bank of India was established in which year?", options: ["1935", "1947", "1950", "1969"], answerIndex: 0, explanation: "The RBI was established on 1 April 1935, under the Reserve Bank of India Act, 1934.", difficulty: "Medium", subtopicName: "RBI & monetary policy", expectedTimeSeconds: 25 },
+    { question: "The major nationalisation of Indian commercial banks first took place in which year?", options: ["1947", "1955", "1969", "1991"], answerIndex: 2, explanation: "14 major commercial banks were nationalised in 1969, under Prime Minister Indira Gandhi's government.", difficulty: "Medium", subtopicName: "Types of banks", expectedTimeSeconds: 30 },
+    { question: "The 'Repo Rate' is best described as the rate at which:", options: ["Commercial banks lend to the public", "The RBI lends short-term funds to commercial banks", "The government taxes bank profits", "Foreign currency is exchanged"], answerIndex: 1, explanation: "The Repo Rate is the rate at which the RBI lends short-term money to commercial banks against government securities.", difficulty: "Medium", subtopicName: "RBI & monetary policy", expectedTimeSeconds: 30 },
+    { question: "A 'Fiscal Deficit' refers to the situation where:", options: ["Exports exceed imports", "Total government expenditure exceeds total revenue (excluding borrowings)", "The RBI prints excess currency", "Tax collection exceeds budget estimates"], answerIndex: 1, explanation: "Fiscal deficit is the gap between the government's total expenditure and its total revenue (excluding money borrowed to cover that very gap).", difficulty: "Medium", subtopicName: "Union Budget basics", expectedTimeSeconds: 30 },
+  ]),
+  // ---- Heat, Light & Sound (should, new) -------------------------------------
+  ...buildQuestions(heatLightSound, [
+    { question: "The approximate speed of sound in air at room temperature is:", options: ["150 m/s", "343 m/s", "500 m/s", "1000 m/s"], answerIndex: 1, explanation: "Sound travels at approximately 343 metres per second in air at room temperature.", difficulty: "Medium", subtopicName: "Sound", expectedTimeSeconds: 25 },
+    { question: "A concave mirror is commonly used in which of the following?", options: ["Rear-view mirrors of vehicles", "Shaving mirrors and torch/headlight reflectors", "Shop security mirrors", "Ordinary flat wall mirrors"], answerIndex: 1, explanation: "Concave mirrors converge light and are used in applications like shaving mirrors and headlight/torch reflectors.", difficulty: "Medium", subtopicName: "Light: reflection & refraction", expectedTimeSeconds: 25 },
+    { question: "The transfer of heat through direct contact between particles of matter is called:", options: ["Convection", "Radiation", "Conduction", "Insulation"], answerIndex: 2, explanation: "Conduction is heat transfer via direct contact, typically through solids.", difficulty: "Easy", subtopicName: "Heat & temperature", expectedTimeSeconds: 20 },
+  ]),
+  // ---- Electricity & Magnetism (should, new) ---------------------------------
+  ...buildQuestions(electricityMagnetism, [
+    { question: "The SI unit of electric current is the:", options: ["Volt", "Ohm", "Ampere", "Watt"], answerIndex: 2, explanation: "The SI unit of electric current is the Ampere.", difficulty: "Easy", subtopicName: "Basic circuits & units", expectedTimeSeconds: 20 },
+    { question: "According to Ohm's Law, V = I × R, where R stands for:", options: ["Rate", "Resistance", "Radius", "Reactance"], answerIndex: 1, explanation: "Ohm's Law relates Voltage (V), Current (I), and Resistance (R): V = IR.", difficulty: "Easy", subtopicName: "Basic circuits & units", expectedTimeSeconds: 20 },
+    { question: "A fuse in an electrical circuit is designed to:", options: ["Increase voltage", "Break the circuit when current exceeds a safe limit", "Store electrical energy", "Convert AC to DC"], answerIndex: 1, explanation: "A fuse melts and breaks the circuit when current exceeds a safe level, protecting the circuit from damage.", difficulty: "Medium", subtopicName: "Basic circuits & units", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Acids, Bases & Everyday Chemistry (should, new) ------------------------
+  ...buildQuestions(acidsBases, [
+    { question: "The pH value of a neutral substance (like pure water) is:", options: ["0", "7", "10", "14"], answerIndex: 1, explanation: "Pure water has a pH of 7, which is considered neutral on the 0-14 pH scale.", difficulty: "Easy", subtopicName: "Acids & bases", expectedTimeSeconds: 20 },
+    { question: "The common acid found in lemon and citrus fruits is:", options: ["Acetic acid", "Citric acid", "Lactic acid", "Sulphuric acid"], answerIndex: 1, explanation: "Citric acid is the acid predominantly found in lemons and other citrus fruits.", difficulty: "Easy", subtopicName: "Everyday chemical reactions", expectedTimeSeconds: 20 },
+    { question: "Baking soda (sodium bicarbonate) is chemically:", options: ["A strong acid", "A mild base", "Neutral", "A strong base"], answerIndex: 1, explanation: "Baking soda (sodium bicarbonate) is a mild base, which is why it's used to neutralise excess stomach acid.", difficulty: "Medium", subtopicName: "Acids & bases", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Plant & Animal Physiology (should, new) ---------------------------------
+  ...buildQuestions(plantAnimalPhysiology, [
+    { question: "Photosynthesis in plants primarily occurs in which cell organelle?", options: ["Mitochondria", "Nucleus", "Chloroplast", "Ribosome"], answerIndex: 2, explanation: "Photosynthesis occurs in chloroplasts, which contain the pigment chlorophyll.", difficulty: "Easy", subtopicName: "Photosynthesis & respiration", expectedTimeSeconds: 20 },
+    { question: "Which plant tissue is responsible for transporting water and minerals from roots to leaves?", options: ["Phloem", "Xylem", "Cambium", "Epidermis"], answerIndex: 1, explanation: "Xylem transports water and dissolved minerals upward from the roots.", difficulty: "Medium", subtopicName: "Photosynthesis & respiration", expectedTimeSeconds: 25 },
+    { question: "Animals that lay eggs, rather than giving birth to live young, are called:", options: ["Viviparous", "Oviparous", "Herbivorous", "Carnivorous"], answerIndex: 1, explanation: "'Oviparous' animals (like birds and most reptiles) lay eggs; 'viviparous' animals give birth to live young.", difficulty: "Easy", subtopicName: "Animal physiology basics", expectedTimeSeconds: 20 },
+  ]),
+  // ---- Classical Dance & Music (should, new) -----------------------------------
+  ...buildQuestions(classicalDance, [
+    { question: "Bharatanatyam, one of India's oldest classical dance forms, originated in which state?", options: ["Kerala", "Tamil Nadu", "Odisha", "Assam"], answerIndex: 1, explanation: "Bharatanatyam originated in Tamil Nadu.", difficulty: "Easy", subtopicName: "Classical dance forms", expectedTimeSeconds: 20 },
+    { question: "Kathakali, a classical dance-drama known for elaborate costumes and face paint, belongs to which state?", options: ["Kerala", "Karnataka", "Andhra Pradesh", "Manipur"], answerIndex: 0, explanation: "Kathakali is a classical dance-drama form native to Kerala.", difficulty: "Medium", subtopicName: "Classical dance forms", expectedTimeSeconds: 25 },
+    { question: "Indian classical music is broadly divided into two major traditions:", options: ["Folk and Devotional", "Hindustani and Carnatic", "Classical and Modern", "Vocal and Instrumental"], answerIndex: 1, explanation: "Indian classical music has two major traditions: Hindustani (North Indian) and Carnatic (South Indian).", difficulty: "Medium", subtopicName: "Music traditions", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Architecture, Festivals & UNESCO Sites (could, new) ---------------------
+  ...buildQuestions(architectureUnesco, [
+    { question: "The Taj Mahal, a UNESCO World Heritage Site, is built primarily of:", options: ["Red sandstone", "White marble", "Granite", "Limestone"], answerIndex: 1, explanation: "The Taj Mahal is built primarily of white marble.", difficulty: "Easy", subtopicName: "UNESCO sites in India", expectedTimeSeconds: 20 },
+    { question: "The Qutub Minar, a UNESCO World Heritage Site in Delhi, was commissioned by:", options: ["Akbar", "Qutb-ud-din Aibak", "Shah Jahan", "Ashoka"], answerIndex: 1, explanation: "Qutb-ud-din Aibak began construction of the Qutub Minar; it was completed by his successors.", difficulty: "Medium", subtopicName: "UNESCO sites in India", expectedTimeSeconds: 25 },
+    { question: "The Ajanta and Ellora Caves, both UNESCO World Heritage Sites, are located in which state?", options: ["Madhya Pradesh", "Maharashtra", "Karnataka", "Gujarat"], answerIndex: 1, explanation: "The Ajanta and Ellora Caves, renowned for rock-cut architecture and ancient paintings, are located in Maharashtra.", difficulty: "Medium", subtopicName: "UNESCO sites in India", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Environmental Issues & Conventions (could, new) -------------------------
+  ...buildQuestions(envIssues, [
+    { question: "The Montreal Protocol (1987) is an international agreement primarily aimed at:", options: ["Reducing greenhouse gas emissions", "Protecting the ozone layer", "Conserving wetlands", "Banning plastic use"], answerIndex: 1, explanation: "The Montreal Protocol (1987) addresses substances that deplete the ozone layer.", difficulty: "Medium", subtopicName: "Key international conventions", expectedTimeSeconds: 30 },
+    { question: "The Ramsar Convention (1971) is an international treaty concerned with the conservation of:", options: ["Forests", "Wetlands", "Coral reefs", "Deserts"], answerIndex: 1, explanation: "The Ramsar Convention, signed in 1971, is dedicated to the conservation and sustainable use of wetlands.", difficulty: "Medium", subtopicName: "Key international conventions", expectedTimeSeconds: 30 },
+    { question: "The Paris Agreement (2015) primarily aims to:", options: ["Eliminate all fossil fuel use immediately", "Limit the rise in global average temperature", "Ban international trade in endangered species", "Regulate ocean fishing quotas"], answerIndex: 1, explanation: "The Paris Agreement, adopted at COP21 in 2015, aims to limit global temperature rise, primarily to well below 2°C above pre-industrial levels.", difficulty: "Medium", subtopicName: "Key international conventions", expectedTimeSeconds: 30 },
+  ]),
+  // ---- Major Central Government Schemes (could, new) ---------------------------
+  ...buildQuestions(govtSchemes, [
+    { question: "The Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA) was enacted in which year?", options: ["2001", "2005", "2010", "2014"], answerIndex: 1, explanation: "MGNREGA was enacted in 2005, guaranteeing a minimum number of days of wage employment per year to rural households.", difficulty: "Medium", subtopicName: "Skill/employment schemes", expectedTimeSeconds: 30 },
+    { question: "The Pradhan Mantri Jan Dhan Yojana, launched in 2014, primarily aims to promote:", options: ["Financial inclusion through universal bank account access", "Rural road construction", "Skill development for youth", "Crop insurance"], answerIndex: 0, explanation: "Jan Dhan Yojana, launched in 2014, aims at financial inclusion by ensuring access to banking for all households.", difficulty: "Medium", subtopicName: "Financial inclusion schemes", expectedTimeSeconds: 30 },
+    { question: "The Swachh Bharat Mission, launched in 2014, primarily focuses on:", options: ["Digital literacy", "Sanitation and cleanliness", "Skill development", "Affordable housing"], answerIndex: 1, explanation: "The Swachh Bharat Mission (Clean India Mission), launched in October 2014, focuses on sanitation and ending open defecation.", difficulty: "Easy", subtopicName: "Social welfare schemes", expectedTimeSeconds: 25 },
+  ]),
+  // ---- National & International Awards (should, new) ---------------------------
+  ...buildQuestions(awards, [
+    { question: "Which is the highest civilian award in India?", options: ["Padma Vibhushan", "Padma Bhushan", "Bharat Ratna", "Padma Shri"], answerIndex: 2, explanation: "The Bharat Ratna is India's highest civilian award.", difficulty: "Easy", subtopicName: "Padma awards & Bharat Ratna", expectedTimeSeconds: 20 },
+    { question: "Among the Padma awards, which is awarded at the highest tier (after the Bharat Ratna)?", options: ["Padma Shri", "Padma Bhushan", "Padma Vibhushan", "Ashok Chakra"], answerIndex: 2, explanation: "In descending order after the Bharat Ratna: Padma Vibhushan, Padma Bhushan, then Padma Shri.", difficulty: "Medium", subtopicName: "Padma awards & Bharat Ratna", expectedTimeSeconds: 25 },
+    { question: "The Nobel Prize is awarded annually across how many categories (including Economic Sciences)?", options: ["4", "5", "6", "7"], answerIndex: 2, explanation: "The Nobel Prize covers six categories: Physics, Chemistry, Physiology or Medicine, Literature, Peace, and Economic Sciences.", difficulty: "Medium", subtopicName: "Nobel Prize", expectedTimeSeconds: 25 },
+    { question: "Rabindranath Tagore, the first Indian (and first Asian) Nobel laureate, won the Nobel Prize in which category?", options: ["Peace", "Literature", "Economic Sciences", "Physics"], answerIndex: 1, explanation: "Rabindranath Tagore won the Nobel Prize in Literature in 1913, becoming the first Indian and first Asian Nobel laureate.", difficulty: "Medium", subtopicName: "Nobel Prize", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Sports Terminology & Events (should, new) --------------------------------
+  ...buildQuestions(sportsTerms, [
+    { question: "The Summer Olympic Games are held once every:", options: ["2 years", "3 years", "4 years", "5 years"], answerIndex: 2, explanation: "The Summer Olympic Games are held once every four years.", difficulty: "Easy", subtopicName: "Major trophies & tournaments", expectedTimeSeconds: 20 },
+    { question: "In cricket, the term 'googly' refers to a type of delivery bowled by a:", options: ["Fast bowler", "Leg-spin bowler", "Left-arm pacer", "Wicketkeeper"], answerIndex: 1, explanation: "A 'googly' is a deceptive delivery bowled by a leg-spin bowler that turns the opposite way to a normal leg break.", difficulty: "Medium", subtopicName: "Sport-specific terminology", expectedTimeSeconds: 25 },
+    { question: "How many players are there on a football (soccer) team on the field at one time, per side?", options: ["9", "10", "11", "12"], answerIndex: 2, explanation: "A football team fields 11 players at a time, including the goalkeeper.", difficulty: "Easy", subtopicName: "Sport-specific terminology", expectedTimeSeconds: 20 },
+  ]),
+  // ---- Recent Sporting Achievements (should, new; kept to settled history) ------
+  ...buildQuestions(recentSports, [
+    { question: "In which years has India won the ICC Cricket World Cup (ODI format)?", options: ["1983 and 2011", "1987 and 2003", "1992 and 2015", "1996 and 2019"], answerIndex: 0, explanation: "India won the ICC Cricket World Cup in 1983 (under Kapil Dev) and 2011 (under M.S. Dhoni) — stable, settled sporting history.", difficulty: "Medium", subtopicName: "Recent tournament winners", expectedTimeSeconds: 30 },
+    { question: "Abhinav Bindra won India's first individual Olympic gold medal in which sport, at the 2008 Beijing Olympics?", options: ["Wrestling", "Shooting", "Boxing", "Badminton"], answerIndex: 1, explanation: "Abhinav Bindra won gold in the 10m Air Rifle shooting event at the 2008 Beijing Olympics.", difficulty: "Medium", subtopicName: "Recent tournament winners", expectedTimeSeconds: 30 },
+  ]),
+  // ---- Famous Books & Authors (could, new) --------------------------------------
+  ...buildQuestions(booksAuthors, [
+    { question: "The book 'Wings of Fire' is the autobiography of which Indian leader?", options: ["Jawaharlal Nehru", "A.P.J. Abdul Kalam", "Atal Bihari Vajpayee", "Dr. Rajendra Prasad"], answerIndex: 1, explanation: "'Wings of Fire' is the autobiography of Dr. A.P.J. Abdul Kalam, India's former President.", difficulty: "Easy", subtopicName: "Autobiographies", expectedTimeSeconds: 20 },
+    { question: "Who wrote 'The Discovery of India'?", options: ["Mahatma Gandhi", "Jawaharlal Nehru", "Dr. B.R. Ambedkar", "Sardar Vallabhbhai Patel"], answerIndex: 1, explanation: "'The Discovery of India' was written by Jawaharlal Nehru, largely while imprisoned during the freedom struggle.", difficulty: "Medium", subtopicName: "Classic literary works", expectedTimeSeconds: 25 },
+    { question: "'My Experiments with Truth' is the autobiography of:", options: ["Mahatma Gandhi", "Sarojini Naidu", "Subhas Chandra Bose", "Bal Gangadhar Tilak"], answerIndex: 0, explanation: "'My Experiments with Truth' is Mahatma Gandhi's autobiography.", difficulty: "Medium", subtopicName: "Autobiographies", expectedTimeSeconds: 25 },
+  ]),
+  // ---- Important National & International Days (should, new) -------------------
+  ...buildQuestions(importantDays, [
+    { question: "National Science Day is celebrated in India on:", options: ["28 February", "5 September", "14 November", "5 June"], answerIndex: 0, explanation: "National Science Day is celebrated on 28 February, marking the discovery of the Raman Effect.", difficulty: "Medium", subtopicName: "National observance days", expectedTimeSeconds: 25 },
+    { question: "Teachers' Day in India is celebrated on 5 September to mark the birthday of:", options: ["Dr. Rajendra Prasad", "Dr. S. Radhakrishnan", "Jawaharlal Nehru", "Dr. B.R. Ambedkar"], answerIndex: 1, explanation: "Teachers' Day commemorates the birth anniversary of Dr. Sarvepalli Radhakrishnan, India's second President and a renowned scholar.", difficulty: "Easy", subtopicName: "National observance days", expectedTimeSeconds: 20 },
+    { question: "World Environment Day is observed globally on:", options: ["22 April", "5 June", "16 September", "8 March"], answerIndex: 1, explanation: "World Environment Day is observed on 5 June each year.", difficulty: "Easy", subtopicName: "International observance days", expectedTimeSeconds: 20 },
+    { question: "Children's Day in India is celebrated on 14 November to mark the birthday of:", options: ["Mahatma Gandhi", "Jawaharlal Nehru", "Indira Gandhi", "Dr. Rajendra Prasad"], answerIndex: 1, explanation: "Children's Day is celebrated on 14 November, the birthday of India's first Prime Minister, Jawaharlal Nehru.", difficulty: "Easy", subtopicName: "National observance days", expectedTimeSeconds: 20 },
+  ]),
+  // ---- International Organizations (could, new) ---------------------------------
+  ...buildQuestions(intlOrgs, [
+    { question: "The United Nations was founded in which year?", options: ["1942", "1945", "1950", "1955"], answerIndex: 1, explanation: "The United Nations was founded in 1945, after the Second World War.", difficulty: "Easy", subtopicName: "UN & its agencies", expectedTimeSeconds: 20 },
+    { question: "The headquarters of the World Health Organization (WHO) is located in:", options: ["New York", "Geneva", "Paris", "Vienna"], answerIndex: 1, explanation: "The WHO is headquartered in Geneva, Switzerland.", difficulty: "Medium", subtopicName: "UN & its agencies", expectedTimeSeconds: 25 },
+    { question: "The International Monetary Fund (IMF) and the World Bank are both headquartered in:", options: ["New York", "Geneva", "Washington D.C.", "London"], answerIndex: 2, explanation: "Both the IMF and the World Bank are headquartered in Washington D.C., USA.", difficulty: "Medium", subtopicName: "Other major international bodies", expectedTimeSeconds: 25 },
+  ]),
+  // ---- National Organizations & Regulatory Bodies (could, new) ------------------
+  ...buildQuestions(nationalOrgs, [
+    { question: "The Securities and Exchange Board of India (SEBI) primarily regulates:", options: ["Insurance companies", "The securities/stock markets", "Telecom companies", "Commercial banks"], answerIndex: 1, explanation: "SEBI regulates India's securities and stock markets.", difficulty: "Easy", subtopicName: "Financial regulators", expectedTimeSeconds: 20 },
+    { question: "The Insurance Regulatory and Development Authority of India (IRDAI) regulates:", options: ["Mutual funds", "The insurance sector", "Telecom tariffs", "Stock exchanges"], answerIndex: 1, explanation: "IRDAI regulates and promotes the insurance industry in India.", difficulty: "Easy", subtopicName: "Financial regulators", expectedTimeSeconds: 20 },
+    { question: "The Telecom Regulatory Authority of India (TRAI) regulates which sector?", options: ["Banking", "Telecommunications", "Civil aviation", "Railways"], answerIndex: 1, explanation: "TRAI regulates the telecommunications sector in India.", difficulty: "Easy", subtopicName: "Financial regulators", expectedTimeSeconds: 20 },
+  ]),
+  // ---- Abbreviations & Full Forms (could, new) -----------------------------------
+  ...buildQuestions(abbreviations, [
+    { question: "What does ISRO stand for?", options: ["Indian Space Research Organisation", "Indian Scientific Research Office", "International Space Research Organisation", "Indian Satellite Research Organisation"], answerIndex: 0, explanation: "ISRO = Indian Space Research Organisation.", difficulty: "Easy", subtopicName: "Tech & science abbreviations", expectedTimeSeconds: 15 },
+    { question: "What does NITI (in NITI Aayog) stand for?", options: ["National Institution for Transforming India", "National Investment and Trade Initiative", "National Industrial Technology Institute", "National Infrastructure and Trade Index"], answerIndex: 0, explanation: "NITI Aayog stands for the National Institution for Transforming India.", difficulty: "Medium", subtopicName: "Government & finance abbreviations", expectedTimeSeconds: 25 },
+    { question: "What does UNESCO stand for?", options: ["United Nations Economic and Social Council", "United Nations Educational, Scientific and Cultural Organization", "United Nations Environmental and Scientific Council", "United Nations Educational and Social Commission"], answerIndex: 1, explanation: "UNESCO = United Nations Educational, Scientific and Cultural Organization.", difficulty: "Medium", subtopicName: "Government & finance abbreviations", expectedTimeSeconds: 25 },
+    { question: "What does GST stand for?", options: ["General Sales Tax", "Goods and Services Tax", "Gross Service Tax", "Government Service Tariff"], answerIndex: 1, explanation: "GST = Goods and Services Tax.", difficulty: "Easy", subtopicName: "Government & finance abbreviations", expectedTimeSeconds: 15 },
+  ]),
+  // ---- Miscellaneous One-Liners (could, new) -------------------------------------
+  ...buildQuestions(miscOneLiners, [
+    { question: "The currency of Japan is the:", options: ["Won", "Yuan", "Yen", "Ringgit"], answerIndex: 2, explanation: "The currency of Japan is the Yen.", difficulty: "Easy", subtopicName: "General miscellaneous facts", expectedTimeSeconds: 15 },
+    { question: "The Great Barrier Reef, the world's largest coral reef system, is located off the coast of:", options: ["Brazil", "Australia", "Indonesia", "South Africa"], answerIndex: 1, explanation: "The Great Barrier Reef is located off the north-east coast of Australia.", difficulty: "Medium", subtopicName: "General miscellaneous facts", expectedTimeSeconds: 20 },
+    { question: "The 'Silicon Valley of India' is a common nickname for which city?", options: ["Hyderabad", "Pune", "Bengaluru", "Chennai"], answerIndex: 2, explanation: "Bengaluru is commonly referred to as the 'Silicon Valley of India' due to its concentration of IT companies.", difficulty: "Easy", subtopicName: "General miscellaneous facts", expectedTimeSeconds: 20 },
   ]),
 ];
